@@ -32,7 +32,7 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-const getSingleUsers = catchAsync(async (req: Request, res: Response) => {
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.getSingleUser(req.params.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -41,7 +41,7 @@ const getSingleUsers = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-const updateUsers = catchAsync(async (req: Request, res: Response) => {
+const updateUser = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.updateUser(req.params.id, req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -50,7 +50,7 @@ const updateUsers = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-const deleteUsers = catchAsync(async (req: Request, res: Response) => {
+const deleteUser = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.deleteUser(req.params.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -64,7 +64,7 @@ export const UserController = {
   createUser,
   loginAuth,
   getAllUsers,
-  getSingleUsers,
-  updateUsers,
-  deleteUsers,
+  getSingleUser,
+  updateUser,
+  deleteUser,
 };
