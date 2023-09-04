@@ -39,6 +39,11 @@
             "date": 1693836146249,
             "name": "C:\\Project\\assignment-8\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-04-09-20-error.log",
             "hash": "c80df9c343968ff5230fdb3778f6281db1cbd9d624c60cdd37be764b22576e90"
+        },
+        {
+            "date": 1693840764329,
+            "name": "C:\\Project\\assignment-8\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-04-09-21-error.log",
+            "hash": "b9735342f3705145227cbc27005dd51b3608192f38da7f3f0d626a0fc4250ed6"
         }
     ],
     "hashType": "sha256"
