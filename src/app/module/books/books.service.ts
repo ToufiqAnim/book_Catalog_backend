@@ -100,15 +100,6 @@ const getAllBooks = async (
     data: result,
   };
 };
-const getSingleBook = async (id: string) => {
-  const result = await prisma.book.findUnique({
-    where: {
-      id,
-    },
-  });
-
-  return result;
-};
 const getBooksCategories = async (id: string) => {
   const result = await prisma.book.findMany({
     where: {
@@ -118,6 +109,16 @@ const getBooksCategories = async (id: string) => {
 
   return result;
 };
+const getSingleBook = async (id: string) => {
+  const result = await prisma.book.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return result;
+};
+
 const updateBook = async (id: string, data: Partial<Book>) => {
   const result = await prisma.book.update({
     where: {

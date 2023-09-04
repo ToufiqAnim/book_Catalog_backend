@@ -1,0 +1,232 @@
+Mon Sep 04 2023 18:6:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "body",
+      "price"
+    ],
+    "message": "Expected number, received string"
+  }
+]
+Mon Sep 04 2023 18:6:55 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "Dracula",
+    author: "Bram Stoker",
+    price: 20,
+    genre: "Horror",
+    publicationDate: "1897-05-26",
+                     ~~~~~~~~~~~~
+    categoryId: "e0b333d3-f38f-4290-ae03-3b34a6c7b1b0"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:7:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "Dracula",
+    author: "Bram Stoker",
+    price: 20,
+    genre: "Horror",
+    publicationDate: " 1897-05-26",
+                     ~~~~~~~~~~~~~
+    categoryId: "e0b333d3-f38f-4290-ae03-3b34a6c7b1b0"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: input contains invalid characters. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:7:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "publicationDate"
+    ],
+    "message": "Publication date is required"
+  }
+]
+Mon Sep 04 2023 18:8:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "Dracula",
+    author: "Bram Stoker",
+    price: 20,
+    genre: "Horror",
+    publicationDate: "1897-05-26",
+                     ~~~~~~~~~~~~
+    categoryId: "e0b333d3-f38f-4290-ae03-3b34a6c7b1b0"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:13:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "1954-07-29",
+                     ~~~~~~~~~~~~
+    categoryId: "e0b333d3-f38f-4290-ae03-3b34a6c7b1b0"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:13:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "1954-07-29",
+                     ~~~~~~~~~~~~
+    categoryId: "e0b333d3-f38f-4290-ae03-3b34a6c7b1b0"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:19:55 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "1954-07-29",
+                     ~~~~~~~~~~~~
+    categoryId: "52b7b601-0dc3-4adc-8a99-7fb6b159c331"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:20:29 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E22021), message: "invalid byte sequence for encoding \"UTF8\": 0xff", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $6"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("mbutils.c"), line: Some(1669), routine: Some("report_invalid_encoding") }) }), transient: false })
+Mon Sep 04 2023 18:21:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E22021), message: "invalid byte sequence for encoding \"UTF8\": 0xff", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $6"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("mbutils.c"), line: Some(1669), routine: Some("report_invalid_encoding") }) }), transient: false })
+Mon Sep 04 2023 18:21:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "29 July, 1954",
+                     ~~~~~~~~~~~~~~~
+    categoryId: "52b7b601-0dc3-4adc-8a99-7fb6b159c331"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: input contains invalid characters. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:22:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Unexpected token " in JSON at position 1
+Mon Sep 04 2023 18:23:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "1954-07-29",
+                     ~~~~~~~~~~~~
+    categoryId: "52b7b601-0dc3-4adc-8a99-7fb6b159c331"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:27:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "1954-07-29",
+                     ~~~~~~~~~~~~
+    categoryId: "52b7b601-0dc3-4adc-8a99-7fb6b159c331"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 18:27:54 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E22021), message: "invalid byte sequence for encoding \"UTF8\": 0xff", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $6"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("mbutils.c"), line: Some(1669), routine: Some("report_invalid_encoding") }) }), transient: false })
+Mon Sep 04 2023 18:29:51 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E22021), message: "invalid byte sequence for encoding \"UTF8\": 0xff", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $6"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("mbutils.c"), line: Some(1669), routine: Some("report_invalid_encoding") }) }), transient: false })
+Mon Sep 04 2023 18:31:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E22021), message: "invalid byte sequence for encoding \"UTF8\": 0xff", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $6"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("mbutils.c"), line: Some(1669), routine: Some("report_invalid_encoding") }) }), transient: false })
+Mon Sep 04 2023 18:33:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E22021), message: "invalid byte sequence for encoding \"UTF8\": 0xff", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $6"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("mbutils.c"), line: Some(1669), routine: Some("report_invalid_encoding") }) }), transient: false })
