@@ -64,6 +64,14 @@ const getAllUsers = async () => {
   const result = await prisma.user.findMany({});
   return result;
 };
+const getSingleUser = async (id: string) => {
+  const result = await prisma.user.findUnique({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
 const updateUser = async (id: string, data: Partial<User>) => {
   const result = await prisma.user.update({
     where: {
@@ -85,6 +93,7 @@ export const UserService = {
   createUser,
   loginAuth,
   getAllUsers,
+  getSingleUser,
   updateUser,
   deleteUser,
 };
