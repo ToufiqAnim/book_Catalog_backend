@@ -3,3 +3,37 @@ Mon Sep 04 2023 20:3:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ secretOrP
 Mon Sep 04 2023 20:4:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ secretOrPrivateKey must have a value
 Mon Sep 04 2023 20:4:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ secretOrPrivateKey must have a value
 Mon Sep 04 2023 20:33:15 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ secretOrPrivateKey must have a value
+Mon Sep 04 2023 20:36:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "expected": "'admin' | 'customer'",
+    "received": "undefined",
+    "code": "invalid_type",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "Name is required"
+  }
+]
+Mon Sep 04 2023 20:36:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "received": "",
+    "code": "invalid_enum_value",
+    "options": [
+      "admin",
+      "customer"
+    ],
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "Invalid enum value. Expected 'admin' | 'customer', received ''"
+  }
+]
+Mon Sep 04 2023 20:37:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Sep 04 2023 20:38:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Sep 04 2023 20:38:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ invalid token
+Mon Sep 04 2023 20:40:25 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Sep 04 2023 20:42:7 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ invalid token
+Mon Sep 04 2023 20:42:25 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ invalid token
+Mon Sep 04 2023 20:42:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ invalid token
