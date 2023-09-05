@@ -6,7 +6,7 @@
 
 #### User
 
-- api/v1/auth/signup (POST)
+- api/v1/users/signup (POST)
 - api/v1/users (GET)
 - api/v1/users/ef905439-2783-4540-9fb0-aca13bad71d1 (Single GET) 
 - api/v1/users/ef905439-2783-4540-9fb0-aca13bad71d1 (PATCH)
@@ -17,9 +17,9 @@
 
 - api/v1/categories/create-category (POST)
 - api/v1/categories (GET)
-- api/v1/categories/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-- api/v1/categories/6177a5b87d32123f08d2f5d4 (PATCH)
-- api/v1/categories/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+- api/v1/categories/7117e840-e279-4140-abd6-e15228e1f66b (Single GET) 
+- api/v1/categories/7117e840-e279-4140-abd6-e15228e1f66b (PATCH)
+- api/v1/categories/7117e840-e279-4140-abd6-e15228e1f66b (DELETE) 
 
 ### Books
 
