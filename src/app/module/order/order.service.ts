@@ -1,68 +1,55 @@
-import { OrderedBook } from '@prisma/client';
+import { Order } from '@prisma/client';
+import httpStatus from 'http-status';
 import { JwtPayload } from 'jsonwebtoken';
+import ApiError from '../../../errors/ApiError';
 import { prisma } from '../../../shared/prisma';
 
-const createOrder = async (payload: OrderedBook[], id: string) => {
-  const createdOrder: any = await prisma.$transaction(
-    async orderTransaction => {
-      const order = await orderTransaction.order.create({
-        data: {
-          userId: id,
-        },
-      });
+const createOrder = async (data: [], userId: string): Promise<Order> => {
+  const payload = { ...data, userId };
 
-      for (let i = 0; i < payload.length; i++) {
-        await orderTransaction.orderedBook.create({
-          data: {
-            orderId: order.id,
-            bookId: payload[i].bookId,
-            quantity: payload[i].quantity,
-          },
-        });
-      }
-      return order;
-    }
-  );
-
-  const result = await prisma.order.findMany({
-    where: {
-      id: createdOrder.id,
-    },
+  const result = await prisma.order.create({
+    data: payload,
     include: {
-      orderedBooks: true,
+      user: true,
     },
   });
 
   return result;
 };
 
-const getAllOrders = async (user: JwtPayload) => {
-  if (user.role === 'customer') {
-    const result = await prisma.order.findMany({
-      where: { userId: user.id },
-    });
-    return result;
-  } else {
-    const result = user.role === 'admin' && (await prisma.order.findMany({}));
-    return result;
-  }
-};
-const getSingleOrder = async (user: JwtPayload, id: string) => {
-  if (user.role === 'customer') {
-    const result = await prisma.order.findUnique({
+const getAllOrders = async (userData: JwtPayload | null): Promise<Order[]> => {
+  if (userData && userData?.role === 'customer') {
+    return await prisma.order.findMany({
       where: {
-        userId: user.id,
-        id,
+        userId: userData?.userId,
       },
     });
-    return result;
   }
+
+  const result = await prisma.order.findMany();
+
+  return result;
+};
+
+const getSingleOrder = async (
+  userInfo: Record<string, unknown> | null,
+  id: string
+) => {
   const result = await prisma.order.findUnique({
     where: { id },
   });
+
+  if (userInfo?.role === 'customer' && result?.userId !== userInfo?.userId) {
+    throw new ApiError(
+      httpStatus.NOT_ACCEPTABLE,
+      'Your request not acceptable'
+    );
+  }
+
   return result;
 };
-export const OrderService = {
+
+export const OrderServices = {
   createOrder,
   getAllOrders,
   getSingleOrder,

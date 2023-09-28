@@ -1,108 +1,53 @@
 import { Request, Response } from 'express';
-import catchAsync from '../../../shared/catchAsync';
-
 import httpStatus from 'http-status';
-import { Secret } from 'jsonwebtoken';
-import config from '../../../config';
-import ApiError from '../../../errors/ApiError';
-import { jwtHelpers } from '../../../helpers/jwtHelpers';
+import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import { OrderService } from './order.service';
+import { OrderServices } from './order.service';
 
 const createOrder = catchAsync(async (req: Request, res: Response) => {
-  const token: string | undefined = req.headers.authorization;
+  const data = req.body;
+  const userId = req.user?.userId;
 
-  try {
-    if (!token) {
-      throw new ApiError(httpStatus.UNAUTHORIZED, 'Token not provided');
-    }
+  const result = await OrderServices.createOrder(data, userId);
 
-    const verifiedUser = jwtHelpers.verifyToken(
-      token,
-      config.jwt.secret as Secret
-    );
-
-    if (verifiedUser.role === 'admin') {
-      throw new ApiError(
-        httpStatus.UNAUTHORIZED,
-        'Only customer can order. Please login as a customer account.'
-      );
-    }
-    const { orderedBooks } = req.body;
-
-    const result = await OrderService.createOrder(
-      orderedBooks,
-      verifiedUser?.id
-    );
-
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Order created successfully',
-      data: result,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order created successfully',
+    data: result,
+  });
 });
 
-const getAllOrder = catchAsync(async (req: Request, res: Response) => {
-  const token: string | undefined = req.headers.authorization;
+const getAllOrders = catchAsync(async (req: Request, res: Response) => {
+  const userData = req.user;
 
-  try {
-    if (!token) {
-      throw new ApiError(httpStatus.UNAUTHORIZED, 'Token not provided');
-    }
+  const result = await OrderServices.getAllOrders(userData);
 
-    const verifiedUser = jwtHelpers.verifyToken(
-      token,
-      config.jwt.secret as Secret
-    );
-
-    const result = await OrderService.getAllOrders(verifiedUser);
-
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Order retrieved successfully',
-      data: result,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Orders retrieved successfully',
+    data: result,
+  });
 });
 
 const getSingleOrder = catchAsync(async (req: Request, res: Response) => {
-  const token: string | undefined = req.headers.authorization;
+  const id = req.params.orderId;
 
-  try {
-    if (!token) {
-      throw new ApiError(httpStatus.UNAUTHORIZED, 'Token not provided');
-    }
+  const userData = req.user;
 
-    const verifiedUser = jwtHelpers.verifyToken(
-      token as string,
-      config.jwt.secret as Secret
-    );
+  const result = await OrderServices.getSingleOrder(userData, id);
 
-    const result = await OrderService.getSingleOrder(
-      verifiedUser,
-      req.params.id
-    );
-
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Order retrieved successfully',
-      data: result,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order fetched successfully',
+    data: result,
+  });
 });
 
 export const OrderController = {
   createOrder,
-  getAllOrder,
+  getAllOrders,
   getSingleOrder,
 };

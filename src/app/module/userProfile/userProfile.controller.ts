@@ -1,36 +1,22 @@
-import { Request, Response } from 'express';
+import { User } from '@prisma/client';
+import { RequestHandler } from 'express';
 import httpStatus from 'http-status';
-import { Secret } from 'jsonwebtoken';
-import config from '../../../config';
-import ApiError from '../../../errors/ApiError';
-import { jwtHelpers } from '../../../helpers/jwtHelpers';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import { UserProfileService } from './userProfile.service';
+import { ProfileServices } from './userProfile.service';
 
-const userProfile = catchAsync(async (req: Request, res: Response) => {
-  const token: string | undefined = req.headers.authorization;
+const getUserProfile: RequestHandler = catchAsync(async (req, res) => {
+  const userId = req.user?.userId;
+  const result = await ProfileServices.getUserProfile(userId);
 
-  try {
-    if (!token) {
-      throw new ApiError(httpStatus.UNAUTHORIZED, 'Token not provided');
-    }
-    const varifiedUser = jwtHelpers.verifyToken(
-      token as string,
-      config.jwt.secret as Secret
-    );
-
-    const result = await UserProfileService.userProfile(varifiedUser?.id);
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Profile retrieved successfully',
-      data: result,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  sendResponse<User | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User profile fetched successfully',
+    data: result,
+  });
 });
-export const userProfileController = {
-  userProfile,
+
+export const ProfileControllers = {
+  getUserProfile,
 };

@@ -1,13 +1,11 @@
 import { prisma } from '../../../shared/prisma';
 
-const userProfile = async (id: string) => {
+const getUserProfile = async (userId: string) => {
   const result = await prisma.user.findUnique({
-    where: {
-      id,
-    },
+    where: { id: userId },
   });
+
   return result;
 };
-export const UserProfileService = {
-  userProfile,
-};
+
+export const ProfileServices = { getUserProfile };

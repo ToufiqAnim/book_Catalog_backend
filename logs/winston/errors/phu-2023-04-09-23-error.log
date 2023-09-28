@@ -1,0 +1,24 @@
+Mon Sep 04 2023 23:18:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+{
+  data: {
+    title: "The Fellowship of the Ring",
+    author: "J.R.R. Tolkien",
+    price: 15,
+    genre: "Fantasy",
+    publicationDate: "1954-07-29",
+                     ~~~~~~~~~~~~
+    categoryId: "e0b333d3-f38f-4290-ae03-3b34a6c7b1b0"
+  },
+  include: {
+    category: true
+  }
+}
+
+Invalid value for argument `publicationDate`: premature end of input. Expected ISO-8601 DateTime.
+Mon Sep 04 2023 23:20:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.book.create()` invocation:
+
+
+Foreign key constraint failed on the field: `books_categoryId_fkey (index)`
