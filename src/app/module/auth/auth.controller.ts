@@ -5,22 +5,26 @@ import sendResponse from '../../../shared/sendResponse';
 import { AuthServices } from './auth.service';
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
-  const result = await AuthServices.createUser(req.body);
+  const user = req.body;
+  const result = await AuthServices.createUser(user);
+  const { password, ...otherData } = result;
+  console.log(password);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User created successfully',
-    data: result,
+    data: otherData,
   });
 });
 
 const loginAuth = catchAsync(async (req: Request, res: Response) => {
-  const result = await AuthServices.loginAuth(req.body);
+  const { token } = await AuthServices.loginAuth(req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User logged in successfully',
-    data: result,
+    token,
   });
 });
 export const AuthController = {

@@ -25,7 +25,7 @@ const createBooks = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Book created successful',
+        message: 'Book created successfully',
         data: result,
     });
 }));
@@ -36,7 +36,7 @@ const getAllBooks = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Books retrieved successful',
+        message: 'Books fetched successfully',
         meta: result.meta,
         data: result.data,
     });
@@ -46,7 +46,7 @@ const getBooksCategories = (0, catchAsync_1.default)((req, res) => __awaiter(voi
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Book retrived by category successful',
+        message: 'Books with associated category data fetched successfully',
         data: result,
     });
 }));
@@ -55,7 +55,7 @@ const getSingleBook = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Single Book retrived successful',
+        message: ' Book fetched successfully',
         data: result,
     });
 }));
@@ -64,7 +64,7 @@ const updateBook = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Book updated successful',
+        message: 'Book updated successfully',
         data: result,
     });
 }));
@@ -73,7 +73,7 @@ const deleteBook = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: 'Book deleted successful',
+        message: 'Book deleted successfully',
         data: result,
     });
 }));

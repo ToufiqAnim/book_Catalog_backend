@@ -13,7 +13,7 @@ const createBooks = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book created successful',
+    message: 'Book created successfully',
     data: result,
   });
 });
@@ -24,7 +24,7 @@ const getAllBooks = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Books retrieved successful',
+    message: 'Books fetched successfully',
     meta: result.meta,
     data: result.data,
   });
@@ -34,7 +34,7 @@ const getBooksCategories = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book retrived by category successful',
+    message: 'Books with associated category data fetched successfully',
     data: result,
   });
 });
@@ -43,7 +43,7 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Single Book retrived successful',
+    message: ' Book fetched successfully',
     data: result,
   });
 });
@@ -52,7 +52,7 @@ const updateBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book updated successful',
+    message: 'Book updated successfully',
     data: result,
   });
 });
@@ -61,7 +61,7 @@ const deleteBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book deleted successful',
+    message: 'Book deleted successfully',
     data: result,
   });
 });

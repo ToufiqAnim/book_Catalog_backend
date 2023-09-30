@@ -28,13 +28,17 @@ const createUser = async (data: User) => {
       config.jwt.refresh_secret as Secret,
       config.jwt.refresh_expires_in as string
     );
-    return {
-      accessToken,
-      refreshToken,
-    };
-  } else {
+    console.log(accessToken, refreshToken);
+
+    // return {
+    //    accessToken,
+    //    refreshToken,
+
+    // };
+  } /* else {
     throw new Error('User does not exist');
-  }
+  } */
+  return result;
 };
 
 const loginAuth = async (data: ILoginUser) => {
@@ -50,13 +54,13 @@ const loginAuth = async (data: ILoginUser) => {
   }
 
   const { id: userId, role } = isUserExist;
-  const accessToken = jwtHelpers.createToken(
+  const token = jwtHelpers.createToken(
     { userId, role },
     config.jwt.secret as Secret,
     config.jwt.expires_in as string
   );
   return {
-    accessToken,
+    token,
   };
 };
 export const AuthServices = {

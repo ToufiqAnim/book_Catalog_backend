@@ -31,14 +31,15 @@ const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
         const { id, role } = isUserExist;
         const accessToken = jwtHelpers_1.jwtHelpers.createToken({ id, role }, config_1.default.jwt.secret, config_1.default.jwt.expires_in);
         const refreshToken = jwtHelpers_1.jwtHelpers.createToken({ id, role }, config_1.default.jwt.refresh_secret, config_1.default.jwt.refresh_expires_in);
-        return {
-            accessToken,
-            refreshToken,
-        };
-    }
-    else {
-        throw new Error('User does not exist');
-    }
+        console.log(accessToken, refreshToken);
+        // return {
+        //    accessToken,
+        //    refreshToken,
+        // };
+    } /* else {
+      throw new Error('User does not exist');
+    } */
+    return result;
 });
 const loginAuth = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const isUserExist = yield prisma_1.prisma.user.findFirst({
@@ -51,9 +52,9 @@ const loginAuth = (data) => __awaiter(void 0, void 0, void 0, function* () {
         throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, 'Password did not match');
     }
     const { id: userId, role } = isUserExist;
-    const accessToken = jwtHelpers_1.jwtHelpers.createToken({ userId, role }, config_1.default.jwt.secret, config_1.default.jwt.expires_in);
+    const token = jwtHelpers_1.jwtHelpers.createToken({ userId, role }, config_1.default.jwt.secret, config_1.default.jwt.expires_in);
     return {
-        accessToken,
+        token,
     };
 });
 exports.AuthServices = {

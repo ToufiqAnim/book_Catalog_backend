@@ -4,6 +4,7 @@ type IApiReponse<T> = {
   statusCode: number;
   success: boolean;
   message?: string | null;
+  token?: string | null;
   meta?: {
     page: number;
     limit: number;
@@ -17,9 +18,14 @@ const sendResponse = <T>(res: Response, data: IApiReponse<T>): void => {
     statusCode: data.statusCode,
     success: data.success,
     message: data.message || null,
+    token: data.token || null,
     meta: data.meta || null || undefined,
     data: data.data || null || undefined,
   };
+
+  if (responseData.token === null || responseData.token === undefined) {
+    delete responseData.token;
+  }
 
   res.status(data.statusCode).json(responseData);
 };
